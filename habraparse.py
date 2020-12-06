@@ -151,10 +151,9 @@ def save_pdf(topic_id: int, filename: str, with_comments: bool = False, project:
         ht = GeektimesTopic(topic_id)
     else:
         ht = HabraTopic(topic_id)
-
     html = prepare_html(ht, with_comments=with_comments)
-    css = CSS(string='@page { size: A4; margin: 1cm; !important;} img { width: 100%; height: auto; !important; }')
-    #css = CSS(string='@page { size: A4 landscape; margin: 1cm !important}')
+    #css = CSS(string='@page { size: A4; margin: 1cm; !important;} img { width: 100%; height: auto; !important; }')
+    css = CSS(string='@page { size: A4; margin: 0.5cm; !important;} img { width: 100%; height: auto; !important; } code { width: 100%; height: auto; white-space: pre-wrap; !important; } table { width: 100%; height: auto; !important; }')
     HTML(string=html).write_pdf(filename, stylesheets=[css])
 
 

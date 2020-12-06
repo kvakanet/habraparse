@@ -1,0 +1,14 @@
+FROM python:3.6
+MAINTAINER kuka <r1@kvaka.net>
+
+#RUN git clone https://github.com/kvakanet/habraparse.git
+ADD . /habraparse/
+RUN pip install --upgrade pip && pip install setuptools --upgrade && cd habraparse && pip install -r requirements.txt.dev
+
+VOLUME /save
+VOLUME /mytest
+
+ENV VER=dev
+
+ENTRYPOINT ["python3", "/mytest/habraparse.py"]
+CMD ["-h"]

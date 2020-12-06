@@ -21,7 +21,7 @@ def get_pages(doc):
 
 
 class TMUser(object):
-    def __init__(self, username, need_favorites=False, need_user_posts=False, domain='habrahabr.ru'):
+    def __init__(self, username, need_favorites=False, need_user_posts=False, domain='habr.com'):
         self._domain = domain
         self._username = username
         self._user = dict()
